@@ -20,19 +20,15 @@ public class TestUnit {
         System.out.println("set up");
         myMaps.put(new EmpName("Nelson"),new EmpNo(2));
         myMaps.put(new EmpName("Ausra"),new EmpNo(4));
-        
+
     }
 
 
     @Test
     public void test(){
         x++;
-       // System.out.print("Testing1 " + x);
-        //myMaps.put("Caleb","Carvalho");
-
         Set set =myMaps.entrySet();
         Iterator iterator = set.iterator();
-
 
 
         while(iterator.hasNext()){
@@ -42,40 +38,19 @@ public class TestUnit {
            EmpName keyValue = (EmpName) me.getKey();
            EmpNo value = (EmpNo) me.getValue();
 
-           System.out.print(keyValue.EmpName());
+           System.out.println(keyValue.EmpName() + " ==>>" + value.EmpNo());
 
-           System.out.print(value.EmpNo());
-
-          // if (keyValue.EmpName().equals("Nelson")){
-
-
-               //System.out.print(((EmpName)me.getKey()).EmpName() );
-               //System.out.println(((EmpNo)me.getValue()).EmpNo());
-           //}
-
-
-
+           if (keyValue.EmpName().equals("Nelson")) {
+               System.out.print("Found " + ((EmpName) me.getKey()).EmpName() + "==>>>");
+               System.out.println(((EmpNo) me.getValue()).EmpNo());
+           }
 
         }
 
+        System.out.println("My size " + myMaps.size());
+        System.out.print(myMaps.entrySet().iterator().next().getKey().EmpName());
 
-
-
-        myMaps.put(new EmpName("Nelson"),new EmpNo(6));
-
-       
-       /* EmpName keyValue = (EmpName) me.getKey();
-        EmpNo value = (EmpNo) me.getValue();
-
-        System.out.print(keyValue.EmpName());
-
-        System.out.print(value.EmpNo());*/
-
-       //int names = myMaps.get(("Nelson")).EmpNo();
-       //System.out.println(myMaps.get("Nelson"));
-        
-             // EmpName locobj = myMaps.get("Nelson");
-       // System.out.println(locobj.EmpName().indexOf("Nelson"));
+        System.out.println(myMaps.entrySet().iterator().next().getValue().EmpNo());
 
     }
 
