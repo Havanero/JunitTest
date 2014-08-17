@@ -10,9 +10,7 @@ import java.util.*;
 public class TestUnit {
 
     private static int x=1;
-    private  HashMap<EmpName,EmpNo> myMaps = new HashMap();
-    private EmpNo no;
-    private EmpName empName;
+    private  HashMap<EmpName,EmpNo> myMaps = new HashMap<EmpName,EmpNo>();
 
     @Before
     public void Init(){
@@ -28,22 +26,21 @@ public class TestUnit {
     public void test(){
         x++;
         Set set =myMaps.entrySet();
-        Iterator iterator = set.iterator();
 
 
-        while(iterator.hasNext()){
-           Map.Entry me = (Map.Entry)iterator.next();
+        for (Object aSet : set) {
+            Map.Entry me = (Map.Entry) aSet;
 
 
-           EmpName keyValue = (EmpName) me.getKey();
-           EmpNo value = (EmpNo) me.getValue();
+            EmpName keyValue = (EmpName) me.getKey();
+            EmpNo value = (EmpNo) me.getValue();
 
-           System.out.println(keyValue.EmpName() + " ==>>" + value.EmpNo());
+            System.out.println(keyValue.EmpName() + " ==>>" + value.EmpNo());
 
-           if (keyValue.EmpName().equals("Nelson")) {
-               System.out.print("Found " + ((EmpName) me.getKey()).EmpName() + "==>>>");
-               System.out.println(((EmpNo) me.getValue()).EmpNo());
-           }
+            if (keyValue.EmpName().equals("Nelson")) {
+                System.out.print("Found " + ((EmpName) me.getKey()).EmpName() + "==>>>");
+                System.out.println(((EmpNo) me.getValue()).EmpNo());
+            }
 
         }
 
